@@ -1,3 +1,4 @@
 <resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">7Vdak2-0oPJAgAbazJFBBkLZOB7X4J94ouQEG</string>
     <string name="app_name">pingal_chat</string>
 </resources>
