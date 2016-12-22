@@ -102,7 +102,7 @@ export default class CustomNavBar extends Component {
             navBar:styles.chatnavBar
           }}>
             {(leftButton) ?
-             ( <NavButton style={styles.icon} onPress={onLeftPress}>
+             ( <NavButton style={styles.tabContainer} onPress={onLeftPress}>
               {button_icon(leftButton)}          
               </NavButton> ) :
               <View/>
@@ -111,7 +111,7 @@ export default class CustomNavBar extends Component {
               {tabs}
               </InvertibleScrollView> 
             { (rightButton) ?
-              (<NavButton style={styles.icon} onPress={onRightPress}>
+              (<NavButton style={styles.tabContainer} onPress={onRightPress}>
                 {button_icon(rightButton)}
               </NavButton>) :
               <View/>

@@ -283,14 +283,14 @@ export default class Thought extends Component{
 
     renderCategoryType(){
       const list = [
-          {'type': 'i_am_a', 'icon': 'group', 'description': 'I am A ...'},
-          {'type': 'gaming', 'icon': 'gamepad', 'description': 'Gaming ...'},
+          {'type': 'i_am_a', 'icon': 'group', 'description': 'Persona ...'},
+          {'type': 'activity', 'icon': 'paw', 'description': 'Activity ...'},
           {'type': 'passion', 'icon': 'coffee', 'description': 'Passion ... '},
           {'type': 'skill', 'icon': 'photo', 'description': 'Skills ...'},
-          {'type': 'health', 'icon': 'heartbeat', 'description': 'Health ...'},
-          {'type': 'buy_sell', 'icon': 'shopping-cart', 'description': 'Trading ...'},
-          {'type': 'activity', 'icon': 'paw', 'description': 'Activity ...'},
-          {'type': 'learned', 'icon': 'book', 'description': 'Today I learned ...'},
+           {'type': 'buy_sell', 'icon': 'shopping-cart', 'description': 'Buy & Sell ...'},
+          {'type': 'gaming', 'icon': 'gamepad', 'description': 'Gaming ...'},
+        //  {'type': 'learned', 'icon': 'book', 'description': 'Today I learned ...'},
+        // {'type': 'health', 'icon': 'heartbeat', 'description': 'Health ...'},
 
  
       ]
@@ -320,7 +320,7 @@ export default class Thought extends Component{
 
   renderButtons(){
         const list = [ 
-             {'type': 'ping', 'icon': 'mars-double', 'description': 'Host Chat Preference Bot'},          
+             {'type': 'ping', 'icon': 'mars-double', 'description': 'Host a MatchBot'},          
         ]
        
         let ds = new ListView.DataSource({rowHasChanged: (r1,r2) => r1 !== r2});
@@ -379,7 +379,7 @@ export default class Thought extends Component{
 
  renderTopbar() {
 
-        this.channel_tabs =['Host']
+        this.channel_tabs =['MatchBot']
         const topbarProps = {    
             channel_tabs: this.channel_tabs,
             leftButton: "user",
@@ -403,7 +403,7 @@ export default class Thought extends Component{
         <View style={styles.container}>
                 {this.renderTopbar()}         
                 <View>
-                    <Text style={styles.listH3}> Locally connected with people on </Text>                                                
+                    <Text style={styles.listH3}> Local Introductions with people on </Text>                                                
                     {this.renderCategoryType()} 
                 </View>
                 <View>                     

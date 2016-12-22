@@ -73,7 +73,7 @@ export const palette = {
     border_color: colors.very_light_gray,
     border_color2: colors.black,
     
-    icon_color: colors.black,
+    icon_color: colors.white,
     icon_color2: colors.black,
 
     background_color: colors.white,
@@ -142,10 +142,20 @@ export const line = {
 }
 
 export const icon = {
-    margin: spacing.large, 
-    marginLeft: spacing.zero, 
-    alignSelf:'center'
+ /*
+   margin:Platform.select({
+      ios: spacing.medium,
+      android: spacing.small,
+    }), 
+    marginLeft: Platform.select({
+      ios: spacing.zero,
+      android: spacing.small,
+    }),
+*/
+
+    //alignSelf:'center'
 }
+
 
 let Form = t.form.Form;
 // clone the default stylesheet
@@ -1065,7 +1075,8 @@ export const navbar = StyleSheet.create({
 
   },
   statusBar: {
-    backgroundColor: palette.navbar_background_color,
+   backgroundColor: palette.navbar_background_color,
+
   },
   navBar: {
     backgroundColor: palette.navbar_background_color,
@@ -1074,7 +1085,6 @@ export const navbar = StyleSheet.create({
     alignItems: 'center',
     borderBottomColor: palette.border_color,
     borderBottomWidth: line.auto_width,
-    
   },
   titleContainer: {
     flexDirection: 'row',
@@ -1093,9 +1103,16 @@ export const navbar = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     height: 30,
-    paddingLeft: spacing.medium,
-    paddingRight: spacing.medium,
+    paddingLeft: Platform.select({
+      ios: spacing.medium,
+      android: spacing.zero,
+    }),
+    paddingRight: Platform.select({
+      ios: spacing.medium,
+      android: spacing.zero,
+    }),
     borderRadius: line.medium,
+
   },
   chatnavBar: {
     backgroundColor: palette.navbar_background_color,
@@ -1104,17 +1121,17 @@ export const navbar = StyleSheet.create({
     alignItems: 'center',
     borderBottomColor: palette.border_color,
     borderBottomWidth: line.auto_width,
-    
   },
   icon: {
       flex:1,
       alignItems: 'center',
       justifyContent: 'center',
+
       
   },
   iconText: {
-    color: palette.text_color,
-    fontWeight: font.large_weight,
+    color: palette.avatar_text_color,
+    fontWeight: font.medium_weight,
     fontSize: font.medium_size,
     backgroundColor: 'transparent',
     textAlign: 'center',
