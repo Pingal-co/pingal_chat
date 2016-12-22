@@ -306,7 +306,7 @@ export default class SlideContainer extends Component {
     //console.log(`Message container: ${this.props.slides}`)
     const invertibleScrollViewProps = {
       ...this.props.invertibleScrollViewProps,
-      inverted: true,
+      inverted: false,
     }
     const slides = this.props.slides
     const user = this.props.user
