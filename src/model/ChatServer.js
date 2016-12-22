@@ -9,10 +9,10 @@ let formatTimestamp = (timestamp) => {
 }
 
 //let URL = 'http://localhost:9090/socket'
-let URL = 'http://www.pingal.co:4010/socket'
+let URL = 'ws://www.pingal.co:4010/socket'
 let TIMEOUT = 10000
 let DEFAULT_LOBBY = "room:lobby"
-let DEFAULT_USER_ID = 1
+let DEFAULT_USER_ID = 100
 
 let chatServer = (user = DEFAULT_USER_ID) => {
     //
