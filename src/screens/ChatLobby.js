@@ -42,6 +42,7 @@ export default class ChatLobby extends Component {
 
   componentWillMount(){
      // To do : load data from chat server
+     /*
       let slides = require('../data/slides.js')
         //console.log(slides);
         this.setState(() => {
@@ -49,6 +50,7 @@ export default class ChatLobby extends Component {
             slides: slides,
         };
         });
+    */
   }
 
   onSend(slides=[]){
