@@ -379,7 +379,7 @@ export default class Thought extends Component{
 
  renderTopbar() {
 
-        this.channel_tabs =['']
+        this.channel_tabs =['Host']
         const topbarProps = {    
             channel_tabs: this.channel_tabs,
             leftButton: "user",
@@ -435,7 +435,7 @@ Thought.defaultProps = {
         mute: false,
     },
     user: {
-       _id: 1, // sent messages should have same user._id
+       _id: 100, // sent messages should have same user._id
         name: DEFAULT_USER, // hash
         deviceid: '', 
         avatar:'',
