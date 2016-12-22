@@ -128,6 +128,7 @@ export default class Channel extends Component {
 
     setSlides(slides) {
         this._slides = slides;
+        // console.log(slides)
         this.setSlidesHash(md5(JSON.stringify(slides)));
     }
 
@@ -438,10 +439,10 @@ export default class Channel extends Component {
             };
         });
         // test if last character is space: token by token sending in English
-        if (/\s+$/.test(newText)) {
+       // if (/\s+$/.test(newText)) {
             // console.log("sending a new token ...")
             this.onSend(slides={text: newText}, shouldResetInputToolbar=false, save=false)
-        }
+      //  }
      }
 
   /*
@@ -464,7 +465,8 @@ export default class Channel extends Component {
 
         slides = slides.map((slide) => {
             // set the slide id only at the first token
-            let num_words = slide.text.split(" ").length - 1 
+            // let num_words = slide.text.split(" ").length - 1 
+            let num_words = slide.text.length
             // console.log("total words: ", num_words)
             if (num_words < 2) {
                 edit_slide_id = 'edit-id-' + Math.round(Math.random() * 1000000)
