@@ -49,7 +49,7 @@ export default class User extends Component {
                     _id: Math.round(Math.random() * 1000000), // sent messages should have same user._id
                     name: DeviceInfo.getUniqueID(),
                     hash: this.generateUserName(), // hash
-                    deviceid: '', 
+                    deviceid: DeviceInfo.getUniqueID(), 
                     avatar:'',
                     email: '',
                     phone: '',
@@ -101,11 +101,14 @@ export default class User extends Component {
   }
 
   onSend(slides=[]){
-        const event="add:user"
-        console.log('send to chat server')     
-        slides=[this.refs.form.getValue()]
+        const event="update:user"
+        console.log('send to chat server') 
+        data = this.refs.form.getValue()
+        data["deviceid"] = this.user.deviceid    
+        slides=[{user: data }]
         this.chat_server.send(this.lobby, slides, event)
   }
+  
   onDebug(){
     console.log("debugging on")
   }

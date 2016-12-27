@@ -101,7 +101,7 @@ export default class Thought extends Component{
                 _id: Math.round(Math.random() * 1000000), // sent messages should have same user._id
                 name: this.device_info.unique_id,
                 hash: this.generateUserName(), // hash
-                deviceid: '', 
+                deviceid: this.device_info.unique_id, 
                 avatar:'',
                 email: '',
                 phone: '',
