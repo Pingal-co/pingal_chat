@@ -15,16 +15,16 @@ let DEFAULT_LOBBY = "room:lobby"
 //let DEFAULT_USER_ID = Math.round(Math.random() * 1000000),
 let DEFAULT_USER_ID = 1000
 
-let chatServer = (user = DEFAULT_USER_ID) => {
-    //
-    if (user === '') {
-        user = DEFAULT_USER_ID
+let chatServer = (user_id = DEFAULT_USER_ID) => {
+    console.log("connecting to server using user_id: ", user_id)
+    if (user_id === '') {
+        user_id = DEFAULT_USER_ID
     }
 
     // define the socket per user
     let socket = new Socket(URL, {
         params: {
-            user: user,
+            user: user_id,
         }
     })
 
@@ -99,6 +99,13 @@ let chatServer = (user = DEFAULT_USER_ID) => {
           
         })
 
+       room.on("get:user_thoughts", message => {
+          console.log('Received user thoughts ...')
+          console.log(message)
+          //console.log(message.body)
+          //renderReceive(message)
+        })
+
        /*
         // demo bot calls
         room.on("user:entered", (msg) => console.log('hello', msg))
@@ -149,7 +156,6 @@ let chatServer = (user = DEFAULT_USER_ID) => {
     let close = () => socket.disconnect()
 
     return {
-        user,
         socket,
         lobby,
         send,
