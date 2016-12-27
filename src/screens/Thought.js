@@ -46,12 +46,9 @@ export default class Thought extends Component{
             value: {},
             location:{},
         }
-        // first time user: login as anonymous
-        if (!this.user) {
-            this.user = this.props.user
-        }
+
           
-        this.setLobby()
+
 
         // debug
         //this.onDebug()
@@ -89,11 +86,30 @@ export default class Thought extends Component{
     componentDidMount(){
         //this.setSlides()
         this.addLocation()
+
+
     }
 
     
     setUser(user) {
-        this.user = user
+        console.log("setting user")
+        console.log(user)
+        if (user) {
+            this.user = user
+        } else {
+            this.user =  {
+                _id: Math.round(Math.random() * 1000000), // sent messages should have same user._id
+                name: this.device_info.unique_id,
+                hash: this.generateUserName(), // hash
+                deviceid: '', 
+                avatar:'',
+                email: '',
+                phone: '',
+            }
+        }
+        console.log(this.getUser())
+        this.props.store.user.setUser(this.getUser())
+        this.setLobby()
     }
 
     getUser(){
@@ -135,7 +151,7 @@ export default class Thought extends Component{
         console.log('send to chat server')
         let slide={}       
         let data = this.refs.form.getValue()
-        slide['user_hash'] = this.generateUserName()
+        slide['user_hash'] = this.user.hash
         for (prop in data) {
             if (prop === this.state.category_type) {
                 slide['category'] = prop
@@ -287,10 +303,10 @@ export default class Thought extends Component{
           {'type': 'activity', 'icon': 'paw', 'description': 'Activity ...'},
           {'type': 'passion', 'icon': 'coffee', 'description': 'Passion ... '},
           {'type': 'skill', 'icon': 'photo', 'description': 'Skills ...'},
-           {'type': 'buy_sell', 'icon': 'shopping-cart', 'description': 'Buy & Sell ...'},
-          {'type': 'gaming', 'icon': 'gamepad', 'description': 'Gaming ...'},
+         // {'type': 'gaming', 'icon': 'gamepad', 'description': 'Gaming ...'},
         //  {'type': 'learned', 'icon': 'book', 'description': 'Today I learned ...'},
-        // {'type': 'health', 'icon': 'heartbeat', 'description': 'Health ...'},
+         {'type': 'health', 'icon': 'heartbeat', 'description': 'Health ...'},
+         {'type': 'buy_sell', 'icon': 'shopping-cart', 'description': 'For Sale ...'},
 
  
       ]
@@ -320,7 +336,7 @@ export default class Thought extends Component{
 
   renderButtons(){
         const list = [ 
-             {'type': 'ping', 'icon': 'mars-double', 'description': 'Host a MatchBot'},          
+             {'type': 'ping', 'icon': 'mars-double', 'description': 'Host a Pingal Bot'},          
         ]
        
         let ds = new ListView.DataSource({rowHasChanged: (r1,r2) => r1 !== r2});
@@ -379,7 +395,7 @@ export default class Thought extends Component{
 
  renderTopbar() {
 
-        this.channel_tabs =['MatchBot']
+        this.channel_tabs =['Match']
         const topbarProps = {    
             channel_tabs: this.channel_tabs,
             leftButton: "user",
@@ -398,6 +414,7 @@ export default class Thought extends Component{
     } 
 
   render(){ 
+      console.log(this.user)
       // <Text style={styles.listH3}>   Set a topic ... </Text>
       let container = (
         <View style={styles.container}>
@@ -433,14 +450,7 @@ export default class Thought extends Component{
 Thought.defaultProps = {
     channel_properties: {
         mute: false,
-    },
-    user: {
-       _id: 100, // sent messages should have same user._id
-        name: DEFAULT_USER, // hash
-        deviceid: '', 
-        avatar:'',
-        email: '',
-        }
+    }
 };
 
 /*

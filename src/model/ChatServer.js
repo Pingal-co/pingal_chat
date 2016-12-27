@@ -12,7 +12,8 @@ let formatTimestamp = (timestamp) => {
 let URL = 'ws://www.pingal.co:4010/socket'
 let TIMEOUT = 10000
 let DEFAULT_LOBBY = "room:lobby"
-let DEFAULT_USER_ID = 100
+//let DEFAULT_USER_ID = Math.round(Math.random() * 1000000),
+let DEFAULT_USER_ID = 1000
 
 let chatServer = (user = DEFAULT_USER_ID) => {
     //

@@ -102,7 +102,9 @@ class UserStore {
             return {
                 _id: this.user._id ,
                 name: this.user.name,
-                avatar: this.user.avatar
+                avatar: this.user.avatar,
+                hash: this.user.hash,
+                deviceid: this.user.deviceid
             }
         }
 

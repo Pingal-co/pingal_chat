@@ -24,6 +24,7 @@ import {thought as styles, palette, formStylesheet} from '../styles/styles.js'
 import ChatServer from '../model/ChatServer';
 // device info
 import DeviceInfo from 'react-native-device-info'
+import autobind from 'autobind-decorator'
 /*
   First time check: if user phone or email exist in the db based on user_id
   If yes, get user thoughts from the db and render them in a user channel
@@ -31,43 +32,47 @@ import DeviceInfo from 'react-native-device-info'
 
 */
 
-const DEFAULT_USER = "anonymous"
-
+@autobind
 export default class User extends Component {
   constructor(props){     
         super(props)     
         this.state = {
             value: {},
         }
+        console.log("stored user")
+        let store = this.props.store
+        this.user = store.user.getUser()
 
-        this.user = {
-            _id: 1, // sent messages should have same user._id
-            name: DEFAULT_USER, // hash
-            deviceid: '', 
-            avatar: '',
-            email: '',
-            phone: '',
-            hash: ''
+        if (!this.user._id) {
+            // first time: no user set
+            this.user =  {
+                    _id: Math.round(Math.random() * 1000000), // sent messages should have same user._id
+                    name: DeviceInfo.getUniqueID(),
+                    hash: this.generateUserName(), // hash
+                    deviceid: '', 
+                    avatar:'',
+                    email: '',
+                    phone: '',
+                }
         }
-
-        // bind send and receive
-        this.onSend = this.onSend.bind(this)
-        this.onReceive = this.onReceive.bind(this)
-        this.onNavigation = this.onNavigation.bind(this)
-
-        this.onChange = this.onChange.bind(this)
-        this.onGenerateUser = this.onGenerateUser.bind(this)    
-        this.generateUserName = this.generateUserName.bind(this)
-
-        // Connect to the user channel
-        this.chat_server = ChatServer()
-        this.topic = `user:${this.user._id}`      
-        this.lobby = this.chat_server.lobby(this.topic, this.onReceive.bind(this))
-
+        console.log(this.user)
+   
+ 
         // debug
         this.onDebug()
 
+       // bind send and receive
+       // this.onSend = this.onSend.bind(this)
+       // this.onReceive = this.onReceive.bind(this)
+       // this.onNavigation = this.onNavigation.bind(this)
+
+       // this.onChange = this.onChange.bind(this)
+       // this.onGenerateUser = this.onGenerateUser.bind(this)    
+       // this.generateUserName = this.generateUserName.bind(this)
+
+
   }
+  /*
   componentWillMount(){
         // push this to backend.
         let uid = DeviceInfo.getUniqueID()
@@ -80,6 +85,19 @@ export default class User extends Component {
 
   setUser(user) {
         this.user = user
+  }
+  */
+
+  setLobby(){
+        // Connect to the user channel
+        this.chat_server = this.props.server(this.user._id)
+        this.topic = `user:${this.user._id}`     
+        this.lobby = this.chat_server.lobby(this.topic, this.onReceive) 
+              
+        //this.chat_server = ChatServer()
+        //this.topic = `user:${this.user._id}`      
+        //this.lobby = this.chat_server.lobby(this.topic, this.onReceive.bind(this))
+
   }
 
   onSend(slides=[]){
