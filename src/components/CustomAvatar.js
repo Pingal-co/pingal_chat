@@ -16,8 +16,8 @@ class CustomAvatar extends Component {
   setAvatarColor() {
     const userName = this.props.user.hash || '';
     const name = userName.toUpperCase().split(' ');
-    console.log("user name: ", name)
-    console.log(this.props.user)
+    //console.log("user name: ", name)
+    //console.log(this.props.user)
 
     if (name.length === 1) {
       this.avatarName = `${name[0].charAt(0)}`;
@@ -27,7 +27,7 @@ class CustomAvatar extends Component {
       this.avatarName = '';
     }
 
-    console.log(this.avatarName)
+    // console.log(this.avatarName)
 
     let sumChars = 0;
     for(let i = 0; i < userName.length; i++) {

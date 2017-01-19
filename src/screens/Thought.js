@@ -210,7 +210,7 @@ export default class Thought extends Component{
         let store = this.props.store
         console.log("received")
         console.log(message)
-        let topic_id = `room:${message.params.room_id}` 
+        let topic_id = `${message.params.room_id}` 
         let topic = message.params.room_name 
         let user = message.user
         let body = message.body
@@ -299,14 +299,14 @@ export default class Thought extends Component{
 
     renderCategoryType(){
       const list = [
-          {'type': 'i_am_a', 'icon': 'group', 'description': 'Persona ...'},
-          {'type': 'activity', 'icon': 'paw', 'description': 'Activity ...'},
-          {'type': 'passion', 'icon': 'coffee', 'description': 'Passion ... '},
-          {'type': 'skill', 'icon': 'photo', 'description': 'Skills ...'},
+      //    {'type': 'i_am_a', 'icon': 'group', 'description': 'who is a/an ...'},
+      //    {'type': 'activity', 'icon': 'paw', 'description': 'on activity ...'},
+          {'type': 'passion', 'icon': 'coffee', 'description': "enthusiast in"},
+     //     {'type': 'skill', 'icon': 'photo', 'description': "on skills ..."},
          // {'type': 'gaming', 'icon': 'gamepad', 'description': 'Gaming ...'},
         //  {'type': 'learned', 'icon': 'book', 'description': 'Today I learned ...'},
-         {'type': 'health', 'icon': 'heartbeat', 'description': 'Health ...'},
-         {'type': 'buy_sell', 'icon': 'shopping-cart', 'description': 'For Sale ...'},
+     //    {'type': 'health', 'icon': 'heartbeat', 'description': 'on health ...'},
+         {'type': 'buy_sell', 'icon': 'shopping-cart', 'description': 'for shopping'},
 
  
       ]
@@ -336,7 +336,7 @@ export default class Thought extends Component{
 
   renderButtons(){
         const list = [ 
-             {'type': 'ping', 'icon': 'mars-double', 'description': 'Host a Pingal Bot'},          
+             {'type': 'ping', 'icon': 'mars-double', 'description': 'Send Command to Pingal ...'},          
         ]
        
         let ds = new ListView.DataSource({rowHasChanged: (r1,r2) => r1 !== r2});
@@ -378,7 +378,7 @@ export default class Thought extends Component{
                 },
             }
         };  
-        options['fields'][category] = {placeholder: 'set a topic'}
+        options['fields'][category] = {placeholder: 'a topic | product '}
 
         return (
             <View style={styles.formContainer}>
@@ -395,7 +395,7 @@ export default class Thought extends Component{
 
  renderTopbar() {
 
-        this.channel_tabs =['Match']
+        this.channel_tabs =['Command Pingal']
         const topbarProps = {    
             channel_tabs: this.channel_tabs,
             leftButton: "user",
@@ -416,19 +416,24 @@ export default class Thought extends Component{
   render(){ 
       console.log(this.user)
       // <Text style={styles.listH3}>   Set a topic ... </Text>
+      /*
+        <View>                     
+                                      
+                </View>
+                <View>
+                 
+                </View>
+      */
       let container = (
         <View style={styles.container}>
                 {this.renderTopbar()}         
                 <View>
-                    <Text style={styles.listH3}> Local Introductions with people on </Text>                                                
+                    <Text style={styles.listH3}> Introduce me to people: </Text>                                                
                     {this.renderCategoryType()} 
-                </View>
-                <View>                     
                     {this.renderForm()}
+                     {this.renderButtons()}  
                 </View>
-                <View>
-                   {this.renderButtons()}
-                </View>
+                
             </View>
       )
         return (

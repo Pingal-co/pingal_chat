@@ -16,6 +16,7 @@ import virtualize from 'react-swipeable-views/lib/virtualize'
 import FoldView from 'react-native-foldview';
 import LoadEarlier from './LoadEarlier';
 import Slide from './Slide';
+import moment from 'moment/min/moment-with-locales.min';
 
 export default class SlideContainer extends Component {
   constructor(props) {
@@ -239,19 +240,21 @@ export default class SlideContainer extends Component {
   renderGroupedSlide(slides, user){
     // group slides by key and sort by time 
     console.log(slides)
-    //grouped = this.group(slides, "user", "_id")
-    grouped = this.group(slides, "user_id")
-    //grouped = this.group(slides, "inserted_at")
+    //grouped = this.groupObj(slides, "user", "_id")
+    let grouped = this.group(slides, "user_id")
+    //let grouped = this.group(slides, "date")
     console.log(grouped)
     const { height } = this.state;
-    //const invertibleScrollViewProps = { 
-    //        ...this.props.invertibleScrollViewProps, 
-     //       inverted: false,      
-      //    }
-        //  <InvertibleScrollView {...invertibleScrollViewProps}
-        //  </InvertibleScrollView>
 
-    grouped_children = Object.keys(grouped).map((key, index) => {
+    let ordered = {}
+    Object.keys(grouped).sort(
+      (a, b) => {
+        return moment(a, 'YYYY/MM/DD').toDate() - moment(b, 'YYYY/MM/DD').toDate();
+      }).forEach((key) => {
+        ordered[key] = grouped[key]
+      })
+    console.log(ordered)
+    grouped_children = Object.keys(ordered).map((key, index) => {
         let slides = grouped[key]
         
         //const latest_slide = [slides.pop()]
@@ -294,7 +297,7 @@ export default class SlideContainer extends Component {
         )
         return normal_view
     })  
-
+    console.log(grouped_children)
     return (
       <View> 
          {grouped_children}
@@ -304,20 +307,20 @@ export default class SlideContainer extends Component {
 
   render() {
     //console.log(`Message container: ${this.props.slides}`)
-    const invertibleScrollViewProps = {
-      ...this.props.invertibleScrollViewProps,
-      inverted: false,
-    }
+    //const invertibleScrollViewProps = {
+    //  ...this.props.invertibleScrollViewProps,
+    //  inverted: true,
+   // }
     const slides = this.props.slides
     const user = this.props.user
     
     return (
       <InvertibleScrollView
-        {...invertibleScrollViewProps}
+        {...this.props.invertibleScrollViewProps}
         ref={component => this._invertibleScrollViewRef = component}
       >
         {this.renderFooter()}
-        {this.renderSlide(slides, user)}     
+        {this.renderGroupedSlide(slides, user)}     
         {this.renderHeader()}
         
       </InvertibleScrollView>
@@ -331,3 +334,11 @@ SlideContainer.defaultProps = {
   footer: null,
   onLoadEarlier: () => {},
 };
+
+
+    //const invertibleScrollViewProps = { 
+    //        ...this.props.invertibleScrollViewProps, 
+     //       inverted: false,      
+      //    }
+        //  <InvertibleScrollView {...invertibleScrollViewProps}
+        //  </InvertibleScrollView>

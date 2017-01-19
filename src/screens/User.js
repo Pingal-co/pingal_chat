@@ -57,7 +57,7 @@ export default class User extends Component {
         }
         console.log(this.user)
    
- 
+        this.setLobby()
         // debug
         this.onDebug()
 
@@ -100,12 +100,16 @@ export default class User extends Component {
 
   }
 
-  onSend(slides=[]){
+  onSend(){
         const event="update:user"
-        console.log('send to chat server') 
-        data = this.refs.form.getValue()
-        data["deviceid"] = this.user.deviceid    
-        slides=[{user: data }]
+        console.log('send to chat server')        
+        let data = this.refs.form.getValue()
+        slides=[{ user: {
+                    ...data,
+                    deviceid: DeviceInfo.getUniqueID()
+                 }
+              }]
+        console.log(slides)      
         this.chat_server.send(this.lobby, slides, event)
   }
   
@@ -172,8 +176,8 @@ export default class User extends Component {
   renderForm(){
         let Form = t.form.Form;
         let user_obj={}
-        user_obj['phone'] = t.String
-        user_obj['name'] = t.String
+        user_obj['coffee_account_key'] = t.String
+        //user_obj['email'] = t.String
         user_obj['name_hash'] = t.String
         let UserForm = t.struct(user_obj);
              
@@ -215,12 +219,8 @@ export default class User extends Component {
                 <TouchableHighlight
                     underlayColor={palette.left_wrapper_background_color}
                     onPress={() => { 
-                        (rowData.type === "user") ?
-                            this.onGenerateUser()
-                        :
-                            this.onSend()
-                      
-                      this.onSend()}}>
+                        (rowData.type === "user") ? this.onGenerateUser() : this.onSend()
+                      }}>
                 
                 <View style={[styles.rowWrapper]}>
                     <FontIcon name={rowData.icon} style={[styles.rowIcon]} size={15} color={palette.icon_color2} />
@@ -257,7 +257,7 @@ render(){
         <View style={styles.container}>
                 {this.renderTopbar()}         
                 <View>
-                    <Text style={styles.listH3}> Profile Verification... </Text> 
+                    <Text style={styles.listH3}> To get introduced, you need to treat her/him with a coffee. Add your coffee account key... </Text> 
                     {this.renderForm()}
                 </View>
                 <View>
@@ -280,5 +280,5 @@ render(){
 }
 
 User.defaultProps = {
-  user: {_id: 1, name: 'Nickname'},
+  user: {_id: 1, name: 'Anonymous'},
 };

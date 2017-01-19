@@ -1,0 +1,62 @@
+
+- Bugs / Improvements for MLP (to be finished asap)
+
+React-Native
+    -- Thought.js OnReceive: 
+        - onNavigation: subscribe Clients navigate to the same lobby
+
+    -- Add Chat Lobby tab in the Thought Lobby 
+        - Redo things based on that
+
+    -- Rich Input box: Pattern matching for Parsed Views
+            -- .png|.jpg  -> load image 
+            -- Text: H1, H2, H3, Bold, Italics, Underline, Color, Link
+            -- youtube videos -> load videos
+ 
+Phoenix:
+    - Introduction testing
+        - query 
+        - adding their channel streams
+        - notifying them correctly
+        - make sure room ids are correct 
+
+    - add doc2vec using python
+    - add elasticsearch
+
+ Website 
+    - Add button
+    - improve phoenix to accept the form
+    - Post it on angel.co
+    - Buy domain names
+
+Patent and Trademark
+    - Fill up the application
+
+Marketing
+- Buy Google adwords
+- Meet and Start testing with as many users as possible. Get their imput          
+
+######### Not a priority ###########
+
+- Stability
+    -- Mobx and complete separation of view and state mgmt
+    -- local storage and chat server via mobx
+
+- Add features
+  -- Fabric Login (Phone Digits) : Profile Verification View
+  -- Fabric (crashlytics)
+  -- User Profile view 
+  -- Watch, unwatch button
+ -- Message Component: Avatar, location (city, country)
+ -- Group Messages Time | User | #Channel | Location group view (Swipeable / fold view)
+        
+ -- Tab-bar: 
+        --- test whatsapp sharing
+        --- left-click (pop on back) is not clickable
+  
+-- Ideas you may have to make it all better.
+
+
+
+
+

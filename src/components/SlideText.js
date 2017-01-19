@@ -176,6 +176,8 @@ export default class SlideText extends Component {
     const position = this.props.position
     // console.log(`body: ${body} `)
     const PATTERN = {
+      image: /https?:\/\/.*\.(?:png|jpg|jpeg|gif|png|svg)/,
+      video: /https?:\/\/(www\.)?(youtube\.com|youtu\.?be)\/.+/,
       url: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/,
       phone: /[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}/,
       email: /\S+@\S+\.\S+/,

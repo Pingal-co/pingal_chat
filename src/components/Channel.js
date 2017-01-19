@@ -48,6 +48,7 @@ export default class Channel extends Component {
         this.state = {
             isInitialized: false, // initialization will calculate maxHeight before rendering the chat
             visible: false,
+            text: ''
         };
 
         // default values for keyboard and locale
@@ -431,6 +432,7 @@ export default class Channel extends Component {
         let newComposerHeight = Math.max(MIN_COMPOSER_HEIGHT, Math.min(MAX_COMPOSER_HEIGHT, e.nativeEvent.contentSize.height));
         let newSlidesContainerHeight = this.getMaxHeight() - this.calculateInputToolbarHeight(newComposerHeight) - this.getKeyboardHeight();
         let newText = e.nativeEvent.text;
+        let oldText = this.state.text
         this.setState((previousState) => {
             return {
                 text: newText,
@@ -441,7 +443,7 @@ export default class Channel extends Component {
         // test if last character is space: token by token sending in English
        // if (/\s+$/.test(newText)) {
             // console.log("sending a new token ...")
-            this.onSend(slides={text: newText}, shouldResetInputToolbar=false, save=false)
+            this.onSend(slides={text: newText, old_text: oldText}, shouldResetInputToolbar=false, save=false)
       //  }
      }
 
@@ -466,9 +468,10 @@ export default class Channel extends Component {
         slides = slides.map((slide) => {
             // set the slide id only at the first token
             // let num_words = slide.text.split(" ").length - 1 
-            let num_words = slide.text.length
-            // console.log("total words: ", num_words)
-            if (num_words < 2) {
+            let len = slide.text.length
+            let old_len = (slide.old_text && slide.old_text.length) || 0
+            console.log("total length: ", len)
+            if (len <= 1 && old_len < 1) {
                 edit_slide_id = 'edit-id-' + Math.round(Math.random() * 1000000)
                 temp_slide_id = 'temp-id-' + Math.round(Math.random() * 1000000)
             }

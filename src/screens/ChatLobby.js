@@ -14,6 +14,7 @@ import autobind from 'autobind-decorator'
 import Share, {ShareSheet, Button} from 'react-native-share';
 import CustomNavBar from '../components/CustomNavBar';
 
+import moment from 'moment/min/moment-with-locales.min';
 
 
 @autobind
@@ -73,6 +74,7 @@ export default class ChatLobby extends Component {
         // convert timestamp
         text["inserted_at"] = new Date(text["inserted_at"])
         text["updated_at"] = new Date(text["updated_at"])
+        text["date"] = moment(text["inserted_at"]).format('YYYY/MM/DD')
         console.log(text)
         this.setState((previousState) => {   
             return {

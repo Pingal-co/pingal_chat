@@ -45,8 +45,8 @@ export default class CustomNavBar extends Component {
     let onLeftPress = this.props.onLeftPress
     const rightButton = this.props.rightButton
     let onRightPress = this.props.onRightPress
-    console.log("topBar")
-    console.log(this.props)
+    //console.log("topBar")
+    //console.log(this.props)
     let button_icon = (name) => { 
           return (
               <FontIcon 
