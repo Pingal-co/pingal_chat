@@ -171,7 +171,7 @@ class ChannelStore {
 class ServerStore {
         @observable server = {} // chat server socket
 
-        setServer = (user_id) => {
+        setServer = (obj) => {
             this.server = obj
         }
 

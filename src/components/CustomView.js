@@ -69,7 +69,7 @@ export default class CustomView extends Component {
           renderRow={(rowData) =>
             <TouchableHighlight onPress={() => this._onChannelPress(rowData)}>
               <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
-                <Text style={[styles[this.props.position].text, this.props.textStyle[this.props.position]]}># {rowData}</Text>
+                <Text style={[styles[this.props.position].text, this.props.textStyle[this.props.position]]}>@ {rowData}</Text>
               </View>
             </TouchableHighlight>
           }

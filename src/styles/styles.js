@@ -79,8 +79,8 @@ export const palette = {
     background_color: colors.white,
     container_background_color: colors.white,
     wrapper_background_color: colors.white,
-    left_wrapper_background_color: colors.white,
-    right_wrapper_background_color: colors.white,
+    left_wrapper_background_color: colors.almost_white,
+    right_wrapper_background_color: colors.blue,
     input_wrapper_background_color: colors.almost_white,
     
     navbar_background_color: colors.orange,
@@ -465,16 +465,7 @@ export const thought = StyleSheet.create({
         alignSelf: 'center'
 
     },
-  rowText: {
-      alignSelf:'center',
-      color: palette.left_slide_text_color,
-      fontSize: font.medium_size,
-      lineHeight: line.medium_height,
-      marginTop: spacing.small,
-      marginBottom: spacing.small,
-      marginRight: spacing.small,
-      
-    },
+
   listWrapper: {
     //flex:2,
     alignItems: 'center',
@@ -484,6 +475,18 @@ export const thought = StyleSheet.create({
     borderRadius: line.medium_radius,
     marginLeft: spacing.large,
     marginRight: spacing.large,
+  },
+  channelWrapper: {
+    //flex:2,
+  //  alignItems: 'center',
+  //  justifyContent: 'center',
+  //  flexDirection: 'row',
+  //  flexWrap: 'wrap',
+    borderRadius: line.medium_radius,
+  //  backgroundColor: colors.almost_white,
+    marginTop: spacing.huge,
+  //  marginLeft: spacing.large,
+  //  marginRight: spacing.large,
   },
   rowWrapper: {
     justifyContent: 'center',
@@ -496,10 +499,45 @@ export const thought = StyleSheet.create({
      marginTop: spacing.medium, 
      marginBottom: spacing.small, 
   },
+  channelRowWrapper: {
+    // justifyContent: 'center',
+     alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    borderTopWidth: line.thin_width,
+    borderTopColor: colors.almost_white,
+    //backgroundColor: colors.almost_white,
+    marginLeft: spacing.medium,
+    marginRight: spacing.medium, 
+     marginTop: spacing.medium, 
+     marginBottom: spacing.small, 
+  },
   rowIcon: {
     marginLeft: spacing.medium, 
     alignSelf:'center'
   },
+  rowText: {
+      alignSelf:'center',
+      //color: palette.left_slide_text_color,
+      color: colors.orange,
+      fontWeight: font.large_weight,
+     // fontSize: font.medium_size,
+      lineHeight: line.medium_height,
+      marginTop: spacing.small,
+      marginBottom: spacing.small,
+      marginRight: spacing.small,
+      
+    },
+  channelRowText: {
+      alignSelf:'center',
+      color: palette.left_slide_text_color,
+      fontWeight: font.large_weight,
+      lineHeight: line.medium_height,
+      marginTop: spacing.small,
+      marginBottom: spacing.small,
+      marginLeft: spacing.small,
+      marginRight: spacing.small,     
+    },
 
   
 });

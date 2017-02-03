@@ -177,8 +177,8 @@ export default class User extends Component {
         let Form = t.form.Form;
         let user_obj={}
         user_obj['coffee_account_key'] = t.String
-        //user_obj['email'] = t.String
-        user_obj['name_hash'] = t.String
+        user_obj['email'] = t.String
+        user_obj['full_name'] = t.String
         let UserForm = t.struct(user_obj);
              
         const options = {

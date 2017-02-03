@@ -7,6 +7,7 @@ import {
 // channel screens
 import Thought from '../screens/Thought'
 import Chat from '../screens/ChatLobby'
+import Start from '../screens/StartLobby'
 import User from '../screens/User'
 
 // model & backends
@@ -21,7 +22,8 @@ import CodePush from "react-native-code-push";
 let Screens ={
   user: User, 
   lobby: Chat,
-  thought: Thought
+  thought: Thought,
+  start: Start
 }
 
 
@@ -50,7 +52,7 @@ export default class Main extends Component {
       <Navigator
         style={ styles.container }
         initialRoute={ {
-            id: 'thought', 
+            id: 'start', 
             } }
         renderScene={this.renderScene.bind(this)}
         configureScene={ () => { return Navigator.SceneConfigs.VerticalUpSwipeJump; } }

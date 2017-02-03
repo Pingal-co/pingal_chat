@@ -251,6 +251,25 @@ export default class Thought extends Component{
           
     }
 
+    onChannelPress(data){
+        // get the channel id call on Navigation 
+        let store = this.props.store
+        /*
+             // server: server,
+        let params = {
+                topic_id: data.topic_id,
+                topic: data.topic, 
+                channel_tabs: [data.topic],             
+                user: store.user.getUser(),
+                server: this.chat_server
+            }
+         // Navigate to the chat_lobby
+       ``this.onNavigation(params)
+        */
+        console.log(`navigate to channel: ${data.topic} and id: ${data.topic_id} for user: `)
+        console.log(store.user.getUser())
+    }
+
     onNavigation(params){
          this.props.navigator.push({
             id: 'lobby',
@@ -299,14 +318,14 @@ export default class Thought extends Component{
 
     renderCategoryType(){
       const list = [
-      //    {'type': 'i_am_a', 'icon': 'group', 'description': 'who is a/an ...'},
       //    {'type': 'activity', 'icon': 'paw', 'description': 'on activity ...'},
-          {'type': 'passion', 'icon': 'coffee', 'description': "enthusiast in"},
+     //  {'type': 'i_am_a', 'icon': 'group', 'description': 'on identity'},
      //     {'type': 'skill', 'icon': 'photo', 'description': "on skills ..."},
-         // {'type': 'gaming', 'icon': 'gamepad', 'description': 'Gaming ...'},
+     //     {'type': 'gaming', 'icon': 'gamepad', 'description': 'shopping for'},
         //  {'type': 'learned', 'icon': 'book', 'description': 'Today I learned ...'},
      //    {'type': 'health', 'icon': 'heartbeat', 'description': 'on health ...'},
-         {'type': 'buy_sell', 'icon': 'shopping-cart', 'description': 'for shopping'},
+        {'type': 'passion', 'icon': 'coffee', 'description': "enthusiast in"},
+        {'type': 'shopping', 'icon': 'shopping-cart', 'description': 'for shopping ideas'},
 
  
       ]
@@ -336,7 +355,7 @@ export default class Thought extends Component{
 
   renderButtons(){
         const list = [ 
-             {'type': 'ping', 'icon': 'mars-double', 'description': 'Send Command to Pingal ...'},          
+             {'type': 'ping', 'icon': 'mars-double', 'description': 'Send command to Pingal'},          
         ]
        
         let ds = new ListView.DataSource({rowHasChanged: (r1,r2) => r1 !== r2});
@@ -362,6 +381,38 @@ export default class Thought extends Component{
         )
     }
 
+renderChannels(){
+      const list = [
+       {'type': 'passion', 'topic_id': 'coffee', 'topic': "Coffee"},
+       {'type': 'passion', 'topic_id': 'group', 'topic': 'Photography'},
+       {'type': 'passion', 'topic_id': 'photo', 'topic': "Jewellery"},
+       {'type': 'passion', 'topic_id': 'gamepad', 'topic': 'WeightLoss'},
+       {'type': 'shopping', 'topic_id': 'book', 'topic': 'MenClothing'},
+       {'type': 'shopping', 'topic_id': 'heartbeat', 'topic': 'Pre-schoolers'},
+       {'type': 'shopping', 'topic_id': 'shopping-cart', 'topic': 'GiftsForMyWife'},
+      ]
+      let ds = new ListView.DataSource({rowHasChanged: (r1,r2) => r1 !== r2});
+      let dataSource = ds.cloneWithRows(list)
+ 
+      return (
+        <ListView contentContainerStyle={styles.channelWrapper}
+          dataSource={dataSource}
+          initialListSize={list.length}
+          renderRow={(rowData) =>
+            <TouchableHighlight
+                 underlayColor={palette.left_wrapper_background_color}
+                onPress={() => {this.onChannelPress(rowData)}}>
+                
+            <View style={[styles.channelRowWrapper]}>
+                <Text style={[styles.channelRowText]}>@{rowData.topic}</Text>
+            </View>
+
+            </TouchableHighlight>
+          }
+        />
+      )
+    }
+
 
   renderForm(){
         let Form = t.form.Form;
@@ -378,7 +429,7 @@ export default class Thought extends Component{
                 },
             }
         };  
-        options['fields'][category] = {placeholder: 'a topic | product '}
+        options['fields'][category] = {placeholder: 'a topic | tag '}
 
         return (
             <View style={styles.formContainer}>
@@ -395,7 +446,7 @@ export default class Thought extends Component{
 
  renderTopbar() {
 
-        this.channel_tabs =['Command Pingal']
+        this.channel_tabs =['Pingal']
         const topbarProps = {    
             channel_tabs: this.channel_tabs,
             leftButton: "user",
@@ -428,10 +479,13 @@ export default class Thought extends Component{
         <View style={styles.container}>
                 {this.renderTopbar()}         
                 <View>
-                    <Text style={styles.listH3}> Introduce me to people: </Text>                                                
+                    <Text style={styles.listH3}> Connect me to people: </Text>                                                
                     {this.renderCategoryType()} 
                     {this.renderForm()}
                      {this.renderButtons()}  
+                </View>
+                <View>
+                    {this.renderChannels()} 
                 </View>
                 
             </View>

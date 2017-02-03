@@ -171,7 +171,7 @@ export default class SlideView extends Component {
           renderRow={(rowData) =>
             <TouchableOpacity onPress={() => this.onChannelPress(rowData)}>
               <View style={[styles[this.props.position].container]}>
-                <Text style={[styles[this.props.position].text]}># {rowData}</Text>
+                <Text style={[styles[this.props.position].text]}>@ {rowData}</Text>
               </View>
             </TouchableOpacity>
           }

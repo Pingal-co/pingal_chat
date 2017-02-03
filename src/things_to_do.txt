@@ -1,24 +1,52 @@
 
+Weekly Plan: January 31st, 2017 - Feb 7th
+
+Technical
+- Wireframes and new design Plan
+- Help out Laser from him to get going
+- Fix a few remaiing front-end issues as detailed below 
+(only applicable if there is no major redesign on front)
+
+Non-technical
+- Upgrade Infrastructure to Team Plan
+- Get Laser on Board
+- Set up Remote Team Communication
+- Understand Legal stuff : talk to a lawyer
+- Meet Neil on 6th (1:30pm @Nero)
+- Buy domain names
+- Spend team time together to build friendship, trust & remove fears
+- Patent and Trademark
+    -- Get started on the application
+
+
+
+#################
 - Bugs / Improvements for MLP (to be finished asap)
+
+
 
 React-Native
     -- Thought.js OnReceive: 
         - onNavigation: subscribe Clients navigate to the same lobby
+        - List of thoughts : load from backend per user, onPress : set/pass the params and enter the lobby
+        - display notification from other users
 
-    -- Add Chat Lobby tab in the Thought Lobby 
-        - Redo things based on that
-
-    -- Rich Input box: Pattern matching for Parsed Views
+    -- Chat Lobby: Rich Input box: Pattern matching for Parsed Views
             -- .png|.jpg  -> load image 
             -- Text: H1, H2, H3, Bold, Italics, Underline, Color, Link
             -- youtube videos -> load videos
- 
+    -- User Lobby:
+        -- test it
+
 Phoenix:
-    - Introduction testing
-        - query 
-        - adding their channel streams
-        - notifying them correctly
-        - make sure room ids are correct 
+    - thoughts
+        -- return the list of thoughts for a user
+
+    - Testing searching for users
+        -- find users 
+        -- adding their channel streams
+        -- notifying them correctly
+        -- make sure room ids are correct 
 
     - add doc2vec using python
     - add elasticsearch
