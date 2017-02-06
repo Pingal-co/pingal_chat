@@ -37,6 +37,8 @@ export default class StartLobby extends Component {
         edit:this.props.edit,
         edit_slide_id: this.props.edit_slide_id
       };
+      this.topic = 'thought:lobby'
+      this.channel_tabs =['Pingal']
  
   }
 
@@ -54,8 +56,7 @@ export default class StartLobby extends Component {
   }
 
   setLobby(){
-        this.chat_server = this.props.server(this.user._id)
-        this.topic = 'thought:lobby'      
+        this.chat_server = this.props.server(this.user._id)      
         this.lobby = this.chat_server.lobby(this.topic, this.onReceive) 
   }
 
@@ -208,7 +209,15 @@ export default class StartLobby extends Component {
         });
 
     }
+   
+   onNavigation(params){
+         this.props.navigator.push({
+            id: 'lobby',
+            params: params
 
+        })        
+    }
+    /*
     onNavigation(id='lobby', params){
         let previous={
             topic: this.topic,
@@ -227,6 +236,7 @@ export default class StartLobby extends Component {
             params: current 
             })
     }
+    */
 
     onDebug(){
         console.log("Device Unique ID", DeviceInfo.getUniqueID());
@@ -257,7 +267,7 @@ export default class StartLobby extends Component {
 
     renderTopbar() {
 
-        this.channel_tabs =['Pingal']
+        
         const topbarProps = {    
             channel_tabs: this.channel_tabs,
             leftButton: "user",
@@ -281,6 +291,9 @@ export default class StartLobby extends Component {
       console.log(store.user.getUser())
       console.log(store.channel.getChannel())
     // 
+      console.log(this.topic)
+      console.log(this.channel_tabs)
+      console.log(this.user)
 
       return (
             <Channel

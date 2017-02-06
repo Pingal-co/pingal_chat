@@ -266,6 +266,9 @@ export default class Channel extends Component {
     */
 
     renderTopbar() {
+        if (this.props.renderTopbar) {
+            return this.props.renderTopbar()
+        }
         
         /*
             onRightPress: () => { 
