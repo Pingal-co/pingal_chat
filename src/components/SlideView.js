@@ -171,7 +171,7 @@ export default class SlideView extends Component {
           renderRow={(rowData) =>
             <TouchableOpacity onPress={() => this.onChannelPress(rowData)}>
               <View style={[styles[this.props.position].container]}>
-                <Text style={[styles[this.props.position].text]}>@ {rowData}</Text>
+                <Text style={[styles[this.props.position].text]}>@{rowData.topic}</Text>
               </View>
             </TouchableOpacity>
           }
@@ -183,19 +183,22 @@ export default class SlideView extends Component {
 
   onChannelPress(channel) {
     let channel_tabs = this.props.channel_tabs 
-    if (channel.startsWith('#')){
+    if (channel.topic.startsWith('@')){
       channel = channel.substr(1)
     }
     if (!(channel_tabs.includes(channel))) {
       channel_tabs = [channel].concat(channel_tabs)
     }
     //console.log(`channel list: ${channel_tabs}`);
-    //console.log(`channel: ${channel} pressed`);
-    this.props.onNavigation(
-                    id='lobby',
-                    params={
-                      topic: channel, 
+    console.log(`channel topic: ${channel.topic} , id: ${channel.topic_id} pressed`);
+    console.log(this.props.server)
+    console.log(this.props.user)
+    this.props.onNavigation({
+                      topic: channel.topic, 
+                      topic_id: channel.topic_id,
                       channel_tabs: channel_tabs, 
+                      user: this.props.user,
+                      server: this.props.server,
                     }
               )
 

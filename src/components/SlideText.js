@@ -63,22 +63,22 @@ export default class SlideText extends Component {
 
   onChannelPress(channel) {
     let channel_tabs = this.props.channel_tabs 
-    if (channel.startsWith('#')){
+    if (channel.topic.startsWith('@')){
       channel = channel.substr(1)
     }
     if (channel_tabs.indexOf(channel) < 0) {
       channel_tabs = [channel].concat(channel_tabs)
     }
     console.log(`channel list: ${channel_tabs}`);
-    console.log(`channel: ${channel} pressed`);
-    this.props.onNavigation(
-                    id='lobby',
-                    params={
-                      topic: channel, 
+    console.log(`channel topic: ${channel.topic} , id: ${channel.topic_id} pressed`);
+    this.props.onNavigation({
+                      topic: channel.topic, 
+                      topic_id: channel.topic_id,
                       channel_tabs: channel_tabs, 
+                      user: this.props.user,
+                      server: this.props.server,
                     }
               )
-
   }
 
   renderBoldText(matchString, matches){

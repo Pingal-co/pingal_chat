@@ -28,8 +28,10 @@ export default class ChatLobby extends Component {
       this.topic_id = this.props.route.params.topic_id
       this.channel_tabs = this.props.route.params.channel_tabs || []
 
-      //this.server = ChatServer(this.user._id)
-      this.server = this.props.route.params.server
+      this.server = ChatServer(this.user._id)
+      //this.server = this.props.route.params.server
+      
+      this.onDebug()
       this.channel = this.server.lobby(this.topic_id, this.onReceive)
  
       this.state = {
@@ -52,6 +54,13 @@ export default class ChatLobby extends Component {
         };
         });
     */
+  }
+  onDebug(){
+      console.log("debugging chat lobby")
+      console.log(this.user)
+      console.log(this.topic)
+      console.log(this.topic_id)
+      console.log(this.server)
   }
 
   onSend(slides=[]){

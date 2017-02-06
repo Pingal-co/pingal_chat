@@ -8,7 +8,6 @@ module.exports = [
       name: 'Pingal',
       hash: 'Pingal',
     },
-    //channels: ['ai', 'erlang'],
     /*
     location: {
        latitude: 48.864601,
@@ -19,8 +18,6 @@ module.exports = [
   {
     _id: Math.round(Math.random() * 1000000),
     body: "Hey, I'm Bob. I'm interested in a lot of different kinds of stuff ...",
-    //channels: ['Pingal', 'Arts', 'Jokes', 'react-native'],
-
     timestamp: new Date(Date.UTC(2017, 1, 30, 17, 20, 0)),
     user: {
       _id: 2,
@@ -31,7 +28,7 @@ module.exports = [
   {
     _id: Math.round(Math.random() * 1000000),
     body: "Awesome, nice to meet you Bob. In case you need some ideas, here's some things other people are interested in right now.",
-    channels: ['tea','tech', 'science', 'frisbee', 'superbowl'],
+    channels: [{'topic': 'tea', 'topic_id': 'room:1:15'},{'topic': 'tech', 'topic_id': 'room:1:16'}, {'topic': 'science', 'topic_id': 'room:1:17'}, {'topic': 'frisbee', 'topic_id': 'room:1:18'}, {'topic': 'superbowl', 'topic_id': 'room:1:19'}],
 
     timestamp: new Date(Date.UTC(2017, 1, 30, 17, 21, 0)),
     user: {
@@ -39,6 +36,5 @@ module.exports = [
       name: 'Pingal',
       hash: 'Pingal',
     },
-    //channels: ['pingal', 'ai', 'react-native'],
   },
 ];

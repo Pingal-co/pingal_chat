@@ -294,12 +294,13 @@ export default class StartLobby extends Component {
       console.log(this.topic)
       console.log(this.channel_tabs)
       console.log(this.user)
+      console.log(this.chat_server)
 
       return (
             <Channel
                 store={store}
                 navigator={this.props.navigator}
-                server={this.server}
+                server={this.chat_server}
 
                 slides={this.state.slides}
                 muteInputToolbar={this.state.mute}
