@@ -37,7 +37,7 @@ export default class StartLobby extends Component {
         edit:this.props.edit,
         edit_slide_id: this.props.edit_slide_id
       };
-      this.topic = 'thought:lobby'
+      this.topic = 'room:1'
       this.channel_tabs =['Pingal']
  
   }
@@ -181,7 +181,8 @@ export default class StartLobby extends Component {
     
 
   onSend(slides=[]){
-      this.server.send(this.channel, slides)
+      // this.chat_server.send(this.channel, slides)
+      this.chat_server.send(this.lobby, slides);
   }
   
   onSave(){
@@ -295,6 +296,7 @@ export default class StartLobby extends Component {
       console.log(this.channel_tabs)
       console.log(this.user)
       console.log(this.chat_server)
+      console.log("chat server ^^")
 
       return (
             <Channel

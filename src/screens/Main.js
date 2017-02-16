@@ -52,7 +52,7 @@ export default class Main extends Component {
       <Navigator
         style={ styles.container }
         initialRoute={ {
-            id: 'thought', 
+            id: 'start', 
             } }
         renderScene={this.renderScene.bind(this)}
         configureScene={ () => { return Navigator.SceneConfigs.VerticalUpSwipeJump; } }

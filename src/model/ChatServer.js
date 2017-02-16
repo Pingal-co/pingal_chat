@@ -9,7 +9,8 @@ let formatTimestamp = (timestamp) => {
 }
 
 //let URL = 'http://localhost:9090/socket'
-let URL = 'ws://www.pingal.co:4010/socket'
+// let URL = 'ws://www.pingal.co:4010/socket'
+let URL = 'ws://localhost:4010/socket'
 let TIMEOUT = 10000
 let DEFAULT_LOBBY = "room:lobby"
 //let DEFAULT_USER_ID = Math.round(Math.random() * 1000000),
@@ -39,6 +40,9 @@ let chatServer = (user_id = DEFAULT_USER_ID) => {
     let lobby = (room_name=DEFAULT_LOBBY, renderReceive=()=>{}) => {
         //let room_name = name || DEFAULT_LOBBY
         let room = socket.channel(room_name, {})
+        console.log("Room channel socket vvv")
+        console.log(room)
+
         let presences = {}
             // join the room
         room.join()
@@ -132,6 +136,8 @@ let chatServer = (user_id = DEFAULT_USER_ID) => {
         console.log("sending to room...")
         //console.log(room)
         //console.log(messages)
+        console.log("Room vvv")
+        console.log(room)
         
         messages.map((message) => {
 
@@ -145,7 +151,6 @@ let chatServer = (user_id = DEFAULT_USER_ID) => {
           */
 
          // console.log(message)
-
           room.push(event, message)
               .receive('ok', (msg) => console.log('sent'))
               .receive('error', (reasons) => console.log('failed', reasons))
