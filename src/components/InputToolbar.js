@@ -10,6 +10,7 @@ import {
 
 import Composer from './Composer';
 import Send from './Send';
+import NavButtons from './NavButtons'
 //import MailTo from './MailTo';
 // import PhotoGallery from './PhotoGallery';
 import CustomActions from './CustomActions';
@@ -147,6 +148,18 @@ export default class InputToolbar extends Component {
     )
   }
 
+  renderNavButtons() {
+    return (
+      <NavButtons {...this.props} />
+    )
+  }
+
+  renderComposer() {
+    return (
+      <Composer {...this.props} />
+    );
+  }
+
   renderSend() {
     const renderSend = this.props.renderSend
 
@@ -154,12 +167,6 @@ export default class InputToolbar extends Component {
       return renderSend(this.props);
     }
     return <Send {...this.props}/>;
-  }
-
-  renderComposer() {
-    return (
-      <Composer {...this.props} />
-    );
   }
 
   renderAccessory() {
@@ -186,15 +193,12 @@ export default class InputToolbar extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.primary}>
-           
+
+          {this.renderNavButtons()}
           {this.renderComposer()}
           {this.renderSend()}
        
         </View>
-        
-
-
-
       </View>
     );
   }

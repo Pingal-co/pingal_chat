@@ -3,6 +3,7 @@ import {
   Platform,
   StyleSheet,
   TextInput,
+  View
 } from 'react-native';
 
 import {composer as styles, palette} from '../styles/styles.js'
@@ -18,17 +19,19 @@ export default class Composer extends Component {
     const style = this.props.style
 
     return (
-      <TextInput
-        placeholder={placeholder}
-        placeholderTextColor={placeholderTextColor}
-        multiline={true}
-        onChange={(e) => { onChange(e); }}
-        style={[styles.textInput, style, { height: composerHeight, }]}
-        value={text}
-        enablesReturnKeyAutomatically={true}
-        underlineColorAndroid="transparent"
-        {...textInputProps}
-      />
+      <View style={styles.textInputBox}>
+        <TextInput
+          placeholder={placeholder}
+          placeholderTextColor={placeholderTextColor}
+          multiline={true}
+          onChange={(e) => { onChange(e); }}
+          style={[styles.textInput, style, { height: composerHeight, }]}
+          value={text}
+          enablesReturnKeyAutomatically={true}
+          underlineColorAndroid="transparent"
+          {...textInputProps}
+        />
+      </View>
     );
   }
 }

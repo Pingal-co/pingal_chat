@@ -304,16 +304,11 @@ export const chat = StyleSheet.create({
 export const input_toolbar = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor: palette.input_wrapper_background_color,
-    borderRadius: line.medium_radius,
-      marginRight: spacing.small,
-      marginLeft: spacing.small,
-      marginBottom: spacing.small
+    justifyContent: "center"
   },
   primary: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-    
   },
   mailto: {
     flexDirection: 'row',
@@ -358,11 +353,33 @@ export const input_toolbar = StyleSheet.create({
   },
 });
 
+export const nav_buttons = StyleSheet.create({
+  buttonsBox: {
+    flex: 1, 
+    flexDirection: "row",
+  },
+  button: {
+    flex: 1, 
+    alignItems: "center",
+  },
+  buttonText: {
+    fontSize: 10,
+  },
+})
+
 //backgroundColor: palette.background_color,
     
 export const composer = StyleSheet.create({
+  textInputBox: {
+    flex: 2,
+    backgroundColor: palette.input_wrapper_background_color,
+    borderRadius: line.medium_radius,
+    marginRight: spacing.small,
+    marginLeft: spacing.small,
+    marginBottom: spacing.small,
+  },
   textInput: {
-    flex: 1,
+    flex: 2,
     color: palette.left_slide_text_color,
     marginLeft: spacing.medium,
     fontSize: font.medium_size,
