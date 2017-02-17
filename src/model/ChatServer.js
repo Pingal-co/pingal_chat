@@ -68,7 +68,7 @@ let chatServer = (user_id = DEFAULT_USER_ID) => {
         // receiving message in the room
         room.on("add:slide", message => {
           console.log('Received new:slide...')
-          console.log(message)
+          //console.log(message)
           //console.log(message.body)
           renderReceive(message)
         })
@@ -132,13 +132,7 @@ let chatServer = (user_id = DEFAULT_USER_ID) => {
     }
 
     // sending message in the lobby
-    let send = (room, messages, event="add:slide") => {
-        console.log("sending to room...")
-        //console.log(room)
-        //console.log(messages)
-        console.log("Room vvv")
-        console.log(room)
-        
+    let send = (room, messages, event="add:slide") => {        
         messages.map((message) => {
 
             /*

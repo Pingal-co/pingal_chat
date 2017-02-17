@@ -25,6 +25,7 @@ export const colors = {
   cyan: "#8abeb7", // 0C
   blue: "#81a2be", // 0D
   almost_blue: "#0084ff",
+  message_blue: "rgb(0, 132, 255)",
   purple: "#b294bb", // 0E
   brown: "#a3685a", // 0F,
   carrot: '#e67e22', // carrot
@@ -57,10 +58,10 @@ export const palette = {
     text_color: colors.black,
     title_color: colors.back,
     left_slide_text_color: colors.black,
-    right_slide_text_color: colors.black,
+    right_slide_text_color: colors.white,
     avatar_text_color: colors.white,
     left_time_text_color: colors.dark_gray,
-    right_time_text_color: colors.dark_gray,
+    right_time_text_color: colors.white,
 
     tab_color: colors.very_light_gray,
     link_color: colors.black,
@@ -80,7 +81,7 @@ export const palette = {
     container_background_color: colors.white,
     wrapper_background_color: colors.white,
     left_wrapper_background_color: colors.almost_white,
-    right_wrapper_background_color: colors.blue,
+    right_wrapper_background_color: colors.message_blue,
     input_wrapper_background_color: colors.almost_white,
     
     navbar_background_color: colors.orange,
@@ -758,6 +759,9 @@ export const slide_sheet = {
       borderRadius: 13,
       margin: 3,
     },
+    cardHeight: {
+      height: 200,
+    }
   }),
   right: StyleSheet.create({
     container: {
@@ -806,7 +810,6 @@ export const slide_image = StyleSheet.create({
     resizeMode: 'cover',
   },
 });
-
 
 
 export const slide_text = {

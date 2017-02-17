@@ -15,6 +15,7 @@ module.exports = [
     },
     */
   },
+
   {
     _id: Math.round(Math.random() * 1000000),
     body: "Hey, I'm Bob. I'm interested in a lot of different kinds of stuff ...",
@@ -25,6 +26,7 @@ module.exports = [
       hash: 'Bob',
     },
   },
+
   {
     _id: Math.round(Math.random() * 1000000),
     body: "Awesome, nice to meet you Bob. In case you need some ideas, here's some things other people are interested in right now.",
@@ -35,6 +37,17 @@ module.exports = [
       _id: 1,
       name: 'Pingal',
       hash: 'Pingal',
+    },
+  },
+
+  {
+    _id: Math.round(Math.random() * 1000000),
+    body: "Oh, great that looks cool! Thanks :)",
+    timestamp: new Date(Date.UTC(2017, 1, 30, 17, 22, 0)),
+    user: {
+      _id: 1,
+      name: 'Bob',
+      hash: 'Bob',
     },
   },
 ];

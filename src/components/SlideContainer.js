@@ -239,11 +239,11 @@ export default class SlideContainer extends Component {
 
   renderGroupedSlide(slides, user){
     // group slides by key and sort by time 
-    console.log(slides)
+    // console.log(slides)
     //grouped = this.groupObj(slides, "user", "_id")
     let grouped = this.group(slides, "user_id")
     //let grouped = this.group(slides, "date")
-    console.log(grouped)
+    // console.log(grouped)
     const { height } = this.state;
 
     let ordered = {}
@@ -253,7 +253,7 @@ export default class SlideContainer extends Component {
       }).forEach((key) => {
         ordered[key] = grouped[key]
       })
-    console.log(ordered)
+    // console.log(ordered)
     grouped_children = Object.keys(ordered).map((key, index) => {
         let slides = grouped[key]
         
@@ -297,7 +297,8 @@ export default class SlideContainer extends Component {
         )
         return normal_view
     })  
-    console.log(grouped_children)
+    // console.log(grouped_children)
+    console.log("Group slide created")
     return (
       <View> 
          {grouped_children}

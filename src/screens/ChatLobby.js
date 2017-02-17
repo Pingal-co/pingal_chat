@@ -78,13 +78,13 @@ export default class ChatLobby extends Component {
   
 
    onReceive(text) {
-        console.log("Rendering received msg")
+        console.log("Rendering received msg ChatLobby")
 
         // convert timestamp
         text["inserted_at"] = new Date(text["inserted_at"])
         text["updated_at"] = new Date(text["updated_at"])
         text["date"] = moment(text["inserted_at"]).format('YYYY/MM/DD')
-        console.log(text)
+        // console.log(text)
         this.setState((previousState) => {   
             return {
                 slides: Channel.update(previousState.slides, text),
@@ -102,10 +102,10 @@ export default class ChatLobby extends Component {
             muteInputToolbar: false,
         }
         console.log("navigation to screen")
-        console.log(params)
+        // console.log(params)
         let current = Object.assign({}, previous, params)
-        console.log(id)
-        console.log(current)
+        // console.log(id)
+        // console.log(current)
         this.props.navigator.push(
             {id: id, 
             params: current 
@@ -145,8 +145,9 @@ export default class ChatLobby extends Component {
     render(){
 
       let store = this.props.store
-      console.log(store.user.getUser())
-      console.log(store.channel.getChannel())
+      // console.log(store.user.getUser())
+      // console.log(store.channel.getChannel())
+      console.log("ChatLobby.js rendered")
     // 
 
       return (

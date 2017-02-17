@@ -161,21 +161,23 @@ export default class SlideView extends Component {
   renderSlideList(){
     const list = this.props.currentSlide.channels 
     if (list) {
+      console.log("rendered slide list")
       let ds = new ListView.DataSource({rowHasChanged: (r1,r2) => r1 !== r2});
       let dataSource = ds.cloneWithRows(list)
 
       return (
-
-        <ListView
-          dataSource={dataSource}
-          renderRow={(rowData) =>
-            <TouchableOpacity onPress={() => this.onChannelPress(rowData)}>
-              <View style={[styles[this.props.position].container]}>
-                <Text style={[styles[this.props.position].text]}>@{rowData.topic}</Text>
-              </View>
-            </TouchableOpacity>
-          }
-        />
+        <View style={[styles.left.cardHeight]}>
+          <ListView
+            dataSource={dataSource}
+            renderRow={(rowData) =>
+              <TouchableOpacity onPress={() => this.onChannelPress(rowData)}>
+                <View style={[styles[this.props.position].container]}>
+                  <Text style={[styles[this.props.position].text]}>@{rowData.topic}</Text>
+                </View>
+              </TouchableOpacity>
+            }
+          />
+        </View>
 
       )
     }

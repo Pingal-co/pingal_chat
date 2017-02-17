@@ -191,17 +191,19 @@ export default class StartLobby extends Component {
           edit:false,
           edit_slide_id: edit_slide_id
       })
+      console.log("onSave called")
       console.log(this.state)
   }
   
 
    onReceive(text) {
-        console.log("Rendering received msg")
+        console.log("Rendering received msg StartLobby")
 
         // convert timestamp
         text["inserted_at"] = new Date(text["inserted_at"])
         text["updated_at"] = new Date(text["updated_at"])
         text["date"] = moment(text["inserted_at"]).format('YYYY/MM/DD')
+        console.log(this.state.slides)
         console.log(text)
         this.setState((previousState) => {   
             return {
@@ -289,14 +291,14 @@ export default class StartLobby extends Component {
     render(){
 
       let store = this.props.store
-      console.log(store.user.getUser())
-      console.log(store.channel.getChannel())
-    // 
-      console.log(this.topic)
-      console.log(this.channel_tabs)
-      console.log(this.user)
-      console.log(this.chat_server)
-      console.log("chat server ^^")
+    //   console.log(store.user.getUser())
+    //   console.log(store.channel.getChannel())
+    // // 
+    //   console.log(this.topic)
+    //   console.log(this.channel_tabs)
+    //   console.log(this.user)
+    //   console.log(this.chat_server)
+      console.log("StartLobby.js rendered")
 
       return (
             <Channel

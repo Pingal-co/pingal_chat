@@ -33,5 +33,5 @@ export default class Send extends Component {
 Send.defaultProps = {
   text: '',
   onSend: () => {},
-  name: 'Save',
+  name: 'Send',
 };
