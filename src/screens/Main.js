@@ -9,6 +9,7 @@ import Thought from '../screens/Thought'
 import Chat from '../screens/ChatLobby'
 import Start from '../screens/StartLobby'
 import User from '../screens/User'
+import Messages from '../screens/Messages'
 
 // model & backends
 import ChatServer from '../model/ChatServer';
@@ -23,7 +24,8 @@ let Screens ={
   user: User, 
   lobby: Chat,
   thought: Thought,
-  start: Start
+  start: Start,
+  messages: Messages,
 }
 
 

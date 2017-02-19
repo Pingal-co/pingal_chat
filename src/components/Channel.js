@@ -201,7 +201,6 @@ export default class Channel extends Component {
         // clone for in-place editing
         slides = currentSlides
         shouldAppend = true
-        console.log("channel update")
         
         let previous = (currentslide, index) => {
             return (currentslide.user._id === slide.user._id) && ("edit_id" in slide) && (currentslide.edit_id === slide.edit_id)
@@ -221,7 +220,7 @@ export default class Channel extends Component {
             
         } else if (currentSlides.findIndex(duplicate) < 0) {
             // append only new slides loaded from database
-            slides = Channel.prepend(currentSlides,slide)
+            slides = Channel.append(currentSlides,slide)
             //console.log("append")
         }
 
@@ -256,7 +255,7 @@ export default class Channel extends Component {
             slides = Channel.append(currentSlides,slide)
         }
         */
-        // console.log(slide)    
+        console.log(slide)    
       
         return slides
     }
@@ -447,7 +446,7 @@ export default class Channel extends Component {
         // test if last character is space: token by token sending in English
        // if (/\s+$/.test(newText)) {
             // console.log("sending a new token ...")
-        this.onSend(slides={text: newText, old_text: oldText}, shouldResetInputToolbar=false, save=false)
+            this.onSend(slides={text: newText, old_text: oldText}, shouldResetInputToolbar=false, save=false)
       //  }
      }
 
@@ -457,7 +456,7 @@ export default class Channel extends Component {
 
     onSend(slides = [], shouldResetInputToolbar = false, save=false) {
         if (!Array.isArray(slides)) {
-            slides = [slides];
+        slides = [slides];
         }
         
         if (save) {
@@ -468,8 +467,7 @@ export default class Channel extends Component {
         // console.log(store.user.getUser())
         // console.log(store.channel.getChannel())
         // console.log(store.channel.getChannelTabs())
-        console.log("onSend")
-        console.log(slides)
+
         slides = slides.map((slide) => {
             // set the slide id only at the first token
             // let num_words = slide.text.split(" ").length - 1 
@@ -488,7 +486,7 @@ export default class Channel extends Component {
                 edit: !save,
                 edit_id: edit_slide_id,           
                 slide_id: temp_slide_id,
-                body: slide.text, // this.state.text, changed so not one character (state change) behind
+                body: this.state.text,
                 user: this.props.user,
                 inserted_at: new Date(),
                 public: true,

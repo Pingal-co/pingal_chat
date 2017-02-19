@@ -93,6 +93,7 @@ export const palette = {
 
 export const spacing = {
     zero: 0,
+    tiny: 2,
     small: 5,
     between_small_medium: 8,
     medium: 10,
@@ -278,7 +279,7 @@ export const splash = StyleSheet.create({
       fontSize: font.medium_size,
       
     },
-     icon: {
+    icon: {
       alignItems: 'center',
        marginLeft: spacing.medium,
   },
@@ -335,7 +336,7 @@ export const input_toolbar = StyleSheet.create({
   icon:{
       color: palette.icon_color
   },
-   iconText: {
+  iconText: {
       fontSize: font.strong_size,
       fontFamily: 'iconfont',
       color: '#666'
@@ -376,7 +377,8 @@ export const composer = StyleSheet.create({
     borderRadius: line.medium_radius,
     marginRight: spacing.small,
     marginLeft: spacing.small,
-    marginBottom: spacing.small,
+    marginBottom: spacing.tiny,
+    marginTop: spacing.tiny,
   },
   textInput: {
     flex: 2,
@@ -385,7 +387,7 @@ export const composer = StyleSheet.create({
     fontSize: font.medium_size,
     lineHeight: line.medium_height,
     marginTop: Platform.select({
-      ios: 6,
+      ios: 3,
       android: 0,
     }),
     marginBottom: Platform.select({
