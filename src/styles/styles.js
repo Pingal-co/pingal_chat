@@ -398,6 +398,27 @@ export const composer = StyleSheet.create({
   },
 });
 
+export const room_nav = StyleSheet.create({
+  roomCard: {
+    height: 60,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    // borderBottomWidth: 1,
+    // borderBottomColor: 'rgb(247, 248, 249)',
+  },
+  picture: {
+    backgroundColor: 'black',
+    borderRadius: 40,
+    height: 40,
+    width: 40,
+    marginLeft: 9,
+  },
+  text: {
+    marginLeft: 24,
+  }
+})
+
 export const thought = StyleSheet.create({
   textInput: {
     color: palette.text_color,

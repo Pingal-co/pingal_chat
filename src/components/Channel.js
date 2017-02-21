@@ -704,11 +704,6 @@ export default class Channel extends Component {
               <View style={styles.container}>
                 {this.renderTopbar()}
                 {this.renderShareSheet()}
-                
-                {// this.renderRoomNav()}
-                }
-                {// this.renderSlides()}
-                }
                 {this.renderBody()}
                 {this.renderInputToolbar()}
               </View>
