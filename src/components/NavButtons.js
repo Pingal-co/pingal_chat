@@ -19,7 +19,7 @@ export default class NavButtons extends Component {
 
 	onNavigation(params) {
 		this.props.navigator.push({
-            id: 'messages'
+            id: 'rooms'
         });
 	}
 

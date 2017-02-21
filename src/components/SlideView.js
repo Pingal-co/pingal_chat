@@ -166,7 +166,7 @@ export default class SlideView extends Component {
       let dataSource = ds.cloneWithRows(list)
 
       return (
-        <View style={[styles.left.cardHeight]}>
+        <View style={[styles.left.card]}>
           <ListView
             dataSource={dataSource}
             renderRow={(rowData) =>

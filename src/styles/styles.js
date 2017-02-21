@@ -362,6 +362,7 @@ export const nav_buttons = StyleSheet.create({
   button: {
     flex: 1, 
     alignItems: "center",
+    backgroundColor: "white",
   },
   buttonText: {
     fontSize: 10,
@@ -778,7 +779,7 @@ export const slide_sheet = {
       borderRadius: 13,
       margin: 3,
     },
-    cardHeight: {
+    card: {
       height: 200,
     }
   }),

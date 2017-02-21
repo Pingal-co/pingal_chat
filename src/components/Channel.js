@@ -18,6 +18,7 @@ import SlideContainer from './SlideContainer';
 import InputToolbar from './InputToolbar';
 import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 import CustomNavBar from './CustomNavBar';
+import RoomNav from '../components/RoomNav';
 
 import {chat as styles, navbar as navbar_styles, palette,icon as icon_style} from '../styles/styles.js'
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -105,6 +106,18 @@ export default class Channel extends Component {
     componentWillReceiveProps(nextProps) {
         this.initSlides(nextProps.slides);
     }
+
+    /* 
+        Body of Room nav or Slides 
+    */
+    renderBody() {
+        if (this.props.rooms) {
+            return this.renderRoomNav();
+        } else if (this.props.slides) {
+            return this.renderSlides();
+        }
+    }
+
     
     /*
         share sheet
@@ -175,6 +188,15 @@ export default class Channel extends Component {
             />
         </AnimatedView>
         );
+    }
+
+    /*
+        Room Navigation (Messages)
+    */
+    renderRoomNav() {
+        return (
+          <RoomNav rooms={this.props.rooms}/>
+        )
     }
 
     /*
@@ -682,7 +704,12 @@ export default class Channel extends Component {
               <View style={styles.container}>
                 {this.renderTopbar()}
                 {this.renderShareSheet()}
-                {this.renderSlides()}
+                
+                {// this.renderRoomNav()}
+                }
+                {// this.renderSlides()}
+                }
+                {this.renderBody()}
                 {this.renderInputToolbar()}
               </View>
             </ActionSheet>
