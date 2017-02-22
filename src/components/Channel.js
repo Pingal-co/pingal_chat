@@ -195,7 +195,7 @@ export default class Channel extends Component {
     */
     renderRoomNav() {
         return (
-          <RoomNav rooms={this.props.rooms}/>
+          <RoomNav rooms={this.props.rooms} {...this.props} />
         )
     }
 

@@ -9,33 +9,19 @@ import {
 
 import {nav_buttons as styles, palette} from '../styles/styles.js';
 import FontIcon from 'react-native-vector-icons/FontAwesome';
+import NavButton from './NavButton'
 
 export default class NavButtons extends Component {
 	constructor(props) {
 		super(props);
-
-		this.onNavigation = this.onNavigation.bind(this);
-	}
-
-	onNavigation(params) {
-		this.props.navigator.push({
-            id: 'rooms'
-        });
 	}
 
 	render() {
+		console.log(this.props.route);
 		return(
 			<View style={styles.buttonsBox}>
-				<View style={styles.button}>
-					<FontIcon name={"smile-o"} size={24} color={"black"} />
-					<Text style={styles.buttonText}>Pingal</Text>
-				</View>
-				<TouchableHighlight onPress={this.onNavigation}>
-					<View style={styles.button}>
-						<FontIcon name={"comment-o"} size={24} color={"black"} />
-						<Text style={styles.buttonText}>Messages</Text>
-					</View>
-				</TouchableHighlight>
+				<NavButton {...this.props} navId={"start"} buttonText={"Pingal"} buttonIcon={"smile-o"} />
+				<NavButton {...this.props} navId={"rooms"} buttonText={"Messages"} buttonIcon={"comment-o"} />
 			</View>
 		)
 	}

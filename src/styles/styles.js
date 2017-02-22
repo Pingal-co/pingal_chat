@@ -355,18 +355,26 @@ export const input_toolbar = StyleSheet.create({
 });
 
 export const nav_buttons = StyleSheet.create({
-  buttonsBox: {
-    flex: 1, 
+  buttonsBox: { 
     flexDirection: "row",
+    flex: 1,
   },
-  button: {
-    flex: 1, 
+})
+
+export const nav_button = StyleSheet.create({
+  touchableHighlight: {
+    flex: 1,
+  },
+  button: { 
     alignItems: "center",
     backgroundColor: "white",
   },
   buttonText: {
     fontSize: 10,
   },
+  textHighlight: {
+    color: "blue",
+  }
 })
 
 //backgroundColor: palette.background_color,
@@ -404,12 +412,13 @@ export const room_nav = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: "white",
     // borderBottomWidth: 1,
     // borderBottomColor: 'rgb(247, 248, 249)',
   },
   picture: {
     backgroundColor: 'black',
-    borderRadius: 40,
+    borderRadius: 20,
     height: 40,
     width: 40,
     marginLeft: 9,

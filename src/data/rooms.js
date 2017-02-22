@@ -1,31 +1,31 @@
 module.exports = [
   {
     _id: Math.round(Math.random() * 1000000),
-    name: "The first room",
+    name: "@technology @science @consciousness",
     timestamp: new Date(Date.UTC(2017, 1, 30, 17, 20, 0)),
   },
 
   {
     _id: Math.round(Math.random() * 1000000),
-    name: "The second room",
+    name: "Jimmy John",
     timestamp: new Date(Date.UTC(2017, 1, 30, 17, 21, 0)),
   },
 
   {
     _id: Math.round(Math.random() * 1000000),
-    name: "The magical room",
+    name: "@physics @quantum mechanics",
     timestamp: new Date(Date.UTC(2017, 1, 30, 17, 22, 0)),
   },
 
   {
     _id: Math.round(Math.random() * 1000000),
-    name: "Yay another room",
+    name: "Rachel Ray",
     timestamp: new Date(Date.UTC(2017, 1, 30, 17, 23, 0)),
   },
 
   {
     _id: Math.round(Math.random() * 1000000),
-    name: "Cool stuff",
+    name: "Maddie Macy",
     timestamp: new Date(Date.UTC(2017, 1, 30, 17, 24, 0)),
   },
 
@@ -37,31 +37,31 @@ module.exports = [
 
     {
     _id: Math.round(Math.random() * 1000000),
-    name: "Technology",
+    name: "@music @rock @bands",
     timestamp: new Date(Date.UTC(2017, 1, 30, 17, 26, 0)),
   },
 
   {
     _id: Math.round(Math.random() * 1000000),
-    name: "Science",
+    name: "Sam Silk",
     timestamp: new Date(Date.UTC(2017, 1, 30, 17, 27, 0)),
   },
 
   {
     _id: Math.round(Math.random() * 1000000),
-    name: "Engineering",
+    name: "Tim Tom",
     timestamp: new Date(Date.UTC(2017, 1, 30, 17, 28, 0)),
   },
 
   {
     _id: Math.round(Math.random() * 1000000),
-    name: "Design",
+    name: "@philosophy",
     timestamp: new Date(Date.UTC(2017, 1, 30, 17, 29, 0)),
   },
 
   {
     _id: Math.round(Math.random() * 1000000),
-    name: "Neuroscience",
+    name: "@neuroscience @neurology @neural computation",
     timestamp: new Date(Date.UTC(2017, 1, 30, 17, 30, 0)),
   },
 
