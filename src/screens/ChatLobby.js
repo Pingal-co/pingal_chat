@@ -23,16 +23,18 @@ export default class ChatLobby extends Component {
   constructor(props) {
       super(props);
 
-      this.user = this.props.route.params.user 
-      this.topic = this.props.route.params.topic
-      this.topic_id = this.props.route.params.topic_id
-      this.channel_tabs = this.props.route.params.channel_tabs || []
+      console.log("Construct Chat Lobby")
+      console.log(props)
+      this.user = this.props.route.user // this.props.route.params.user 
+      this.topic = this.props.route.topic // this.props.route.params.topic
+      this.topic_id = this.props.route.topic_id // this.props.route.params.topic_id
+      this.channel_tabs = this.props.route.channel_tabs // this.props.route.params.channel_tabs || []
 
-      this.server = ChatServer(this.user._id)
-      //this.server = this.props.route.params.server
+      this.chat_server = ChatServer(this.user._id)
+      //this.chat_server = this.props.route.params.server
       
       this.onDebug()
-      this.channel = this.server.lobby(this.topic_id, this.onReceive)
+      this.channel = this.chat_server.lobby(this.topic_id, this.onReceive)
  
       this.state = {
         slides: [],
@@ -60,11 +62,11 @@ export default class ChatLobby extends Component {
       console.log(this.user)
       console.log(this.topic)
       console.log(this.topic_id)
-      console.log(this.server)
+      console.log(this.chat_server)
   }
 
   onSend(slides=[]){
-      this.server.send(this.channel, slides)
+      this.chat_server.send(this.channel, slides)
   }
   
   onSave(){
@@ -96,7 +98,7 @@ export default class ChatLobby extends Component {
     onNavigation(id='lobby', params){
         let previous={
             topic: this.topic,
-            server: this.server,
+            server: this.chat_server,
             user: this.user,
             channel_tabs: this.channel_tabs,
             muteInputToolbar: false,
@@ -154,7 +156,7 @@ export default class ChatLobby extends Component {
             <Channel
                 store={store}
                 navigator={this.props.navigator}
-                server={this.server}
+                server={this.chat_server}
 
                 slides={this.state.slides}
                 muteInputToolbar={this.state.mute}
@@ -183,7 +185,7 @@ ChatLobby.defaultProps = {
 
       /*
        <Screen
-                server={this.server}
+                server={this.chat_server}
                 user={this.user}
                 topic={this.topic}
                 channel_tabs={this.channel_tabs}

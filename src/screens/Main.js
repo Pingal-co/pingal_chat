@@ -15,6 +15,9 @@ import Rooms from '../screens/Rooms'
 import ChatServer from '../model/ChatServer';
 import {Store, LocalDB} from '../model/Store';
 
+// screen navigator transition
+import CustomTransitions from '../components/CustomTransitions'
+
 // deployment
 import CodePush from "react-native-code-push";
 //let HockeyApp = require('react-native-hockeyapp');
@@ -54,10 +57,10 @@ export default class Main extends Component {
       <Navigator
         style={ styles.container }
         initialRoute={ {
-            id: 'rooms', 
+            id: 'start', 
             } }
         renderScene={this.renderScene.bind(this)}
-        configureScene={ () => { return Navigator.SceneConfigs.SwipeFromLeft; } }
+        configureScene={ () => { return CustomTransitions.NONE; } } //Navigator.SceneConfigs.SwipeFromLeft
       />
     );
   }

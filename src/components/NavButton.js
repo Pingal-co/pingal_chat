@@ -11,6 +11,13 @@ import {nav_button as styles, palette} from '../styles/styles.js';
 import FontIcon from 'react-native-vector-icons/FontAwesome';
 
 export default class NavButton extends Component {
+	/*
+		This component renders a button, typically (designed for) Pingal and Messages at the bottom navigation.
+		It is called from NavButtons, and should be passed navId, buttonText, buttonIcon, plus an appropriate
+		route and navigator.
+		ex. <NavButton {...this.props} navId={"start"} buttonText={"Pingal"} buttonIcon={"smile-o"} />
+	*/
+
 	constructor(props) {
 		super(props);
 

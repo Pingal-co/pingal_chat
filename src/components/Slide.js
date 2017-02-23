@@ -13,18 +13,19 @@ import SlideView from './SlideView';
 import {slide as styles} from '../styles/styles.js'
 
 export default class Slide extends Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    const nextSlide = this.props.nextSlide
-    const previousSlide = this.props.previousSlide
+  // Commented out until the _id, slide_id, id madness is sorted out
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   const nextSlide = this.props.nextSlide
+  //   const previousSlide = this.props.previousSlide
 
-    if (nextSlide._id !== nextProps.nextSlide._id) {
-      return true;
-    }
-    if (previousSlide._id !== nextProps.previousSlide._id) {
-      return true;
-    }
-    return false;
-  }
+  //   if (nextSlide.slide_id !== nextProps.nextSlide.slide_id) { //(nextSlide._id !== nextProps.nextSlide._id)
+  //     return true;
+  //   }
+  //   if (previousSlide.slide_id !== nextProps.previousSlide.slide_id) { //(previousSlide._id !== nextProps.previousSlide._id)
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   isSameDay(currentSlide = {}, diffSlide = {}) {
     let diff = 0;

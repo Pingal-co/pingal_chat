@@ -131,7 +131,7 @@ export default class StartLobby extends Component {
             this.user = user
         } else {
             this.user =  {
-                _id: Math.round(Math.random() * 1000000), // sent messages should have same user._id
+                _id: 2, // Math.round(Math.random() * 1000000), // sent messages should have same user._id
                 name: this.device_info.unique_id,
                 hash: this.generateUserName(), // hash
                 deviceid: this.device_info.unique_id, 

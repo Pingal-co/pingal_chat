@@ -94,7 +94,7 @@ let chatServer = (user_id = DEFAULT_USER_ID) => {
           messages.slides.map((slide) => {
               slide = {
                 ...slide,
-                _id: Math.round(Math.random() * 1000000), 
+                _id: 2, // Math.round(Math.random() * 1000000), 
                 slide_id: 'save-id-' + slide.id,     
             } 
             //console.log(slide)

@@ -20,7 +20,9 @@ export default class RoomNav extends Component {
 
 	onNavigation(params) {
 		this.props.navigator.push({
-            id: 'start'
+            id: 'lobby',
+            params: params,
+            user: {id: 2}, // this should be dynamic
         });
 	}
 
