@@ -13,9 +13,6 @@ export default class Avatar extends Component {
   renderAvatar() {
     const position = this.props.position
     const user = this.props.currentSlide.user
-    console.log("user is")
-    console.log(this.props.currentSlide.user)
-    console.log(styles.pingal)
     if (this.props.currentSlide.user._id == 1) {
       return <Image 
                 source={pingalAvatar} 

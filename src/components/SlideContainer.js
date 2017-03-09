@@ -119,14 +119,13 @@ export default class SlideContainer extends Component {
               // console.log(slide)
               // console.log("the user")
               // console.log(user)
-
               const slideProps = {
               ...this.props,
               key: slide.slide_id, // slide._id changed from has broken live typing for as of yet unknown reasons
               currentSlide: slide,
               previousSlide: slides[index + 1] || {},
               nextSlide: slides[index - 1] || {},
-              position: slide.user._id === user._id ? 'right' : 'left', // slide.user._id vs id?
+              position: (slide.user.id === user._id) || (slide.user._id === user._id) ? 'right' : 'left', // slide.user._id vs id?
             };
                         
               return <Slide {...slideProps}/>;

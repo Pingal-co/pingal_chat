@@ -203,7 +203,7 @@ export default class StartLobby extends Component {
         text["inserted_at"] = new Date(text["inserted_at"])
         text["updated_at"] = new Date(text["updated_at"])
         text["date"] = moment(text["inserted_at"]).format('YYYY/MM/DD')
-        console.log(this.state.slides)
+        // console.log(this.state.slides)
         console.log(text)
         this.setState((previousState) => {   
             return {

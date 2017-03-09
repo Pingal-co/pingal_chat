@@ -243,8 +243,8 @@ export default class Channel extends Component {
             
         } else if (currentSlides.findIndex(duplicate) < 0) {
             // append only new slides loaded from database
-            slides = Channel.prepend(currentSlides,slide)
-            //console.log("append")
+            slides = Channel.prepend(currentSlides, slide)
+            // console.log("append")
         }
 
         /*

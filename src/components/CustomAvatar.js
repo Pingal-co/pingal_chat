@@ -81,6 +81,9 @@ class CustomAvatar extends Component {
     const avatarStyle = this.props.avatarStyle
     const {onPress, ...other} = this.props;
 
+    // console.log("avatar and name")
+    // console.log(avatar)
+    // console.log(name)
     if (!name && !avatar) {
       // render placeholder
       return (

@@ -109,7 +109,7 @@ export default class Slide extends Component {
         }]}>
           {position === 'left' ? this.renderAvatar() : null}
           {this.renderSlideView()}
-          {position === 'right' ? this.renderAvatar() : null}
+          {/* position === 'right' ? this.renderAvatar() : null */}
         </View>
       </View>
     );
