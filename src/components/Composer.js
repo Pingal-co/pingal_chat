@@ -21,8 +21,8 @@ export default class Composer extends Component {
     return (
       <View style={styles.textInputBox}>
         <TextInput
-          placeholder={placeholder}
-          placeholderTextColor={placeholderTextColor}
+          placeholder={"Type a message..."}
+          placeholderTextColor={"gray"}
           multiline={true}
           onChange={(e) => { onChange(e); }}
           style={[styles.textInput, style, { height: composerHeight, }]}

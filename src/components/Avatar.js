@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
 import {
   View,
+  Image
 } from 'react-native';
 
 import {avatar as styles} from '../styles/styles.js'
 import CustomAvatar from './CustomAvatar';
 
+import pingalAvatar from '../lib/images/pingal_play.png'
+
 export default class Avatar extends Component {
   renderAvatar() {
     const position = this.props.position
     const user = this.props.currentSlide.user
-    return (
-      <CustomAvatar
-        avatarStyle={styles[position].image}
-        user={user}
-      />
-    );
+    console.log("user is")
+    console.log(this.props.currentSlide.user)
+    console.log(styles.pingal)
+    if (this.props.currentSlide.user._id == 1) {
+      return <Image 
+                source={pingalAvatar} 
+                style={{height: 42, width: 42}}
+              />
+    } else {
+      return (
+        <CustomAvatar
+          avatarStyle={styles[position].image}
+          user={user}
+        />
+      );
+    }
   }
 
   render() {
